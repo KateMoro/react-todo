@@ -1,0 +1,29 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 48px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.formInput {
+  padding: 8px;
+  border: 2px solid var(--color-accent-300);
+  border-radius: 4px 0 0 4px;
+
+  &:hover {
+    border-color: var(--color-accent-100);
+  }
+
+}
+
+.formButton {
+  border-radius: 0 4px 4px 0;
+  background-color: var(--color-accent-300);
+  background-image: url('./images/plus.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:hover {
+    background-color: var(--color-accent-100);
+  }
+}

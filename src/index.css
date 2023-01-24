@@ -38,3 +38,20 @@ body {
   background-color: var(--color-white);
   border-radius: 8px;
 }
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.5;
+  color: inherit;
+  outline: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
