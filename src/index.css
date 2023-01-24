@@ -1,0 +1,40 @@
+:root {
+  --color-accent-100: #633BBC;
+  --color-accent-200: #8257E5;
+  --color-accent-300: #9674E6;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--color-black);
+  background-color: var(--color-accent-300);
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 32px;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-width: 320px;
+  max-width: 700px;
+  height: 100%;
+  padding: 16px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+}
