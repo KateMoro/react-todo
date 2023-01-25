@@ -1,11 +1,14 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useToDoStore } from '../../data/stores/useToDoStore';
 import styles from './NewTaskForm.module.scss';
 
 const NewTaskForm: React.FC = () => {
   const [title, setTitle] = useState<string>('');
+  const { createTask } = useToDoStore();
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+    createTask(title);
     setTitle('');
   };
 
