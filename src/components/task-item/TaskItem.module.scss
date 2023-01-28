@@ -1,0 +1,32 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: var(--color-accent-opacity);
+}
+
+.taskCheckbox:checked + span {
+  text-decoration: line-through;
+}
+
+.taskButton {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  padding: 0;
+  border-radius: 4px;
+  border: 1px solid var(--color-black);
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.taskButtonRemove {
+  background-image: url('./images/bin.svg');
+}
