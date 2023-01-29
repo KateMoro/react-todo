@@ -7,8 +7,19 @@
   background-color: var(--color-accent-opacity);
 }
 
+.taskLabel {
+  display: flex;
+  width: 100%;
+}
+
 .taskCheckbox:checked + span {
   text-decoration: line-through;
+}
+
+.taskEditInput {
+  width: 100%;
+  padding: 0;
+  border: none;
 }
 
 .taskButton {
@@ -29,4 +40,11 @@
 
 .taskButtonRemove {
   background-image: url('./images/bin.svg');
+}
+
+.taskButtonSave {
+  background-image: url('./images/check.svg');
+}
+.taskButtonEdit {
+  background-image: url('./images/edit.svg');
 }
