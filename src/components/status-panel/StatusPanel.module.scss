@@ -1,0 +1,11 @@
+.statusPanel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.statusPanelText {
+  margin: 0;
+  color: var(--color-gray);
+}

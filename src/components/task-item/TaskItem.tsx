@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useToDoStore } from '../../data/stores/useToDoStore';
+import { Task } from '../../types/task';
 import styles from './TaskItem.module.scss';
 
-interface TaskItem {
-  id: string;
-  title: string;
-}
 
-const TaskItem: React.FC<TaskItem> = ({ id, title }) => {
-  const { removeTask, updateTask } = useToDoStore();
+const TaskItem: React.FC<Task> = ({ id, title, isDone }) => {
+  const { removeTask, updateTask, toggleDone } = useToDoStore();
   const [isEditMode, setIsEditMode] = useState(false);
   const [value, setValue] = useState(title);
   const taskEditInputRef = useRef<HTMLInputElement>(null);
@@ -22,7 +19,7 @@ const TaskItem: React.FC<TaskItem> = ({ id, title }) => {
   return (
     <li className={styles.task}>
       <label className={styles.taskLabel}>
-        <input className={styles.taskCheckbox} type="checkbox" />
+        <input className={styles.taskCheckbox} type="checkbox" checked={isDone} onChange={() => toggleDone(id)} />
         {isEditMode ? (
           <input
             className={styles.taskEditInput}
