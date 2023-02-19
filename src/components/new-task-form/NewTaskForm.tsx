@@ -8,8 +8,10 @@ const NewTaskForm: React.FC = () => {
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    createTask(title);
-    setTitle('');
+    if (title.trim() !== '') {
+      createTask(title);
+      setTitle('');
+    }
   };
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
