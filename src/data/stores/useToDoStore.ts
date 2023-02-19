@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { generateId } from '../../helpers';
 import { Task } from '../../types/task';
 import { FilterType } from './../../const';
@@ -13,7 +14,7 @@ interface ToDoStore {
   changeCurrentFilter: (filter: string) => void;
 }
 
-export const useToDoStore = create<ToDoStore>(((set, get) => (
+export const useToDoStore = create<ToDoStore>()(persist((set, get) => (
   {
     tasks: [],
     currentFilter: FilterType.ALL,
@@ -56,5 +57,8 @@ export const useToDoStore = create<ToDoStore>(((set, get) => (
     changeCurrentFilter: (filter) => {
       set({ currentFilter: filter })
     },
-  })
+  }),
+  {
+    name: 'tasks',
+  }
 ));
