@@ -1,10 +1,14 @@
+import { shallow } from 'zustand/shallow';
 import { useToDoStore } from '../../data/stores/useToDoStore';
 import { filterButtons } from '../../const';
 import styles from './Filters.module.scss';
 
 
 const Filters: React.FC = () => {
-  const {currentFilter, changeCurrentFilter} = useToDoStore();
+  const [currentFilter, changeCurrentFilter] = useToDoStore(
+    (state) => [state.currentFilter, state.changeCurrentFilter],
+    shallow
+  );
 
   return (
     <div className={styles.filters}>

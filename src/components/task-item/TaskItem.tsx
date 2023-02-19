@@ -1,3 +1,4 @@
+import { shallow } from 'zustand/shallow';
 import { useEffect, useRef, useState } from 'react';
 import { useToDoStore } from '../../data/stores/useToDoStore';
 import { Task } from '../../types/task';
@@ -5,7 +6,10 @@ import styles from './TaskItem.module.scss';
 
 
 const TaskItem: React.FC<Task> = ({ id, title, isDone }) => {
-  const { removeTask, updateTask, toggleDone } = useToDoStore();
+  const [removeTask, updateTask, toggleDone] = useToDoStore(
+    (state) => [state.removeTask, state.updateTask, state.toggleDone,],
+    shallow
+  );
   const [isEditMode, setIsEditMode] = useState(false);
   const [value, setValue] = useState(title);
   const taskEditInputRef = useRef<HTMLInputElement>(null);

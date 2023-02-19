@@ -1,3 +1,4 @@
+import { shallow } from 'zustand/shallow';
 import { useToDoStore } from '../../data/stores/useToDoStore';
 import { filter } from '../../helpers';
 import TaskItem from '../task-item/TaskItem';
@@ -5,7 +6,10 @@ import TasksEmpty from '../tasks-empty/TasksEmpty';
 import styles from './TasksList.module.scss';
 
 const TasksList: React.FC = () => {
-  const { tasks, currentFilter } = useToDoStore();
+  const [tasks, currentFilter] = useToDoStore(
+    (state) => [state.tasks, state.currentFilter],
+    shallow
+  );
   const filteredTasks = filter[currentFilter](tasks);
 
   return (

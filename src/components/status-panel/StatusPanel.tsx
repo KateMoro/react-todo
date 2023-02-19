@@ -5,7 +5,7 @@ import { FilterType } from '../../const';
 import styles from './StatusPanel.module.scss';
 
 const StatusPanel: React.FC = () => {
-  const { tasks } = useToDoStore();
+  const tasks = useToDoStore((state) => state.tasks);
   const activeTasks = filter[FilterType.ACTIVE](tasks);
 
   return (

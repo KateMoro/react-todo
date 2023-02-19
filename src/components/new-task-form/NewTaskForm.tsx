@@ -4,7 +4,7 @@ import styles from './NewTaskForm.module.scss';
 
 const NewTaskForm: React.FC = () => {
   const [title, setTitle] = useState<string>('');
-  const { createTask } = useToDoStore();
+  const createTask = useToDoStore((state) => state.createTask);
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
